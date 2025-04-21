@@ -1,7 +1,6 @@
 
 let boxes = document.querySelectorAll(".box");
 let msg = document.querySelector(".msg");
-let body = document.querySelector("body");
 let reset = document.querySelector(".reset");
 let newbtn = document.querySelector(".newbtn");
 let count = 0;
@@ -30,6 +29,7 @@ boxes.forEach((box) => {
             turn_O = true;
         }
         box.disabled = true;
+        count++;
         winnerCheck();
     })
 })
@@ -54,6 +54,7 @@ const enableBoxes = () => {
 }
 
 const winnerCheck = () => {
+    let winnerFound = false;
     for (let Turns of winningTurns) {
         let pos1 = boxes[Turns[0]].innerText;
         let pos2 = boxes[Turns[1]].innerText;
@@ -66,7 +67,14 @@ const winnerCheck = () => {
                 newbtn.classList.add("hide");
                 msg.textContent = `CONGO! Winner is ${pos1}`
                 disableBoxes();
+                winnerFound = true;
             }
         }
+    }
+    if (!winnerFound && count === 9) {
+        msg.classList.remove("hide");
+        reset.classList.add("hide");
+        newbtn.classList.remove("hide");
+        msg.textContent = "It's a Draw!";
     }
 }
