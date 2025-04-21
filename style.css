@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e3eaa7;
+}
+.box{
+    font-size: 60px;
+    height: 150px;
+    color: white;
+    font-weight: 700;
+    border: 0;
+    background-color: #86af49;
+
+}
+.msg{
+    font-size: 26px;
+    text-align: center;
+    margin: 20px 0px;
+    font-weight: 500;
+}
+.reset,.newbtn{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.hide{
+    display: none;
+}
